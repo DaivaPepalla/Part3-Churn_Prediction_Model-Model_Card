@@ -18,19 +18,17 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 # Repository URL to pull the pre-calculated snapshot features dynamically
 RAW_GITHUB_URL = "https://raw.githubusercontent.com/DaivaPepalla/Part2-d2c-RFM_Segmentation-Retention_Strategy/main/segments.csv"
 
-print("🚀 Starting Part 3 Machine Learning Engine...")
-
 # =================================================================
 #  1. SELF-SUSTAINING DATA INGESTION & DATA LEAKAGE PREVENTION
 # =================================================================
 if not os.path.exists(SEGMENTS_PATH):
-    print("📡 segments.csv not found locally. Fetching directly from Part 2 GitHub Repository...")
+    print("segments.csv not found locally. Fetching directly from Part 2 GitHub Repository...")
     try:
         features_df = pd.read_csv(RAW_GITHUB_URL)
         features_df.to_csv(SEGMENTS_PATH, index=False)
-        print("✅ Successfully pulled from github and saved segments.csv locally!")
+        print(" Successfully pulled from github and saved segments.csv locally!")
     except Exception as e:
-        raise FileNotFoundError(f"❌ Error: Failed to auto-download segments.csv from GitHub. Details: {e}")
+        raise FileNotFoundError(f" Error: Failed to auto-download segments.csv from GitHub. Details: {e}")
 else:
     print("Found local segments.csv.")
     features_df = pd.read_csv(SEGMENTS_PATH)
@@ -54,7 +52,6 @@ X_train_scaled = scaler.fit_transform(X_train_final)
 X_val_scaled = scaler.transform(X_val)
 X_test_scaled = scaler.transform(X_test)
 
-
 # =================================================================
 #  2. DUAL MODEL TRAINING & SELECTION (BASELINE VS. STRONGER)
 # =================================================================
@@ -75,8 +72,6 @@ print(f" Validation ROC-AUC -> Baseline: {val_baseline_auc:.4f} | Strong Model: 
 with open("./model.pkl", 'wb') as f:
     pickle.dump({'model': strong_model, 'scaler': scaler}, f)
 print("model.pkl successfully written to disk.")
-
-
 
 # =================================================================
 #  3. BUSINESS THRESHOLD OPTIMIZATION & METRIC EXPORT
@@ -109,7 +104,6 @@ with open("./metrics.json", 'w', encoding='utf-8') as f:
     json.dump(metrics_payload, f, indent=4)
 print("metrics.json successfully written to disk.")
 
-
 # =================================================================
 #  4. ERROR ANALYSIS PROCESSING (10 CUSTOMER SNAPSHOTS)
 # =================================================================
@@ -122,8 +116,6 @@ test_results['Probability'] = y_prob_test
 false_positives = test_results[(test_results['Actual'] == 0) & (test_results['Predicted'] == 1)].head(5)
 false_negatives = test_results[(test_results['Actual'] == 1) & (test_results['Predicted'] == 0)].head(5)
 error_sample_df = pd.concat([false_positives, false_negatives])
-
-
 
 # Generate Error Analysis Report (Output 4: error_analysis.md)
 error_md = f"""# Error Analysis Report
@@ -155,8 +147,6 @@ for _, r in error_sample_df.iterrows():
 with open("./error_analysis.md", 'w', encoding='utf-8') as f:
     f.write(error_md)
 print(" Output 4 Saved: error_analysis.md successfully written to disk.")
-
-
 
 # =================================================================
 #  5. OFFICIAL CHURN MODEL CARD CREATION

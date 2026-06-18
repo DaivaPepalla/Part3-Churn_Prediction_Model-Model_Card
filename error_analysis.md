@@ -10,7 +10,7 @@ This document profiles exactly 10 customer accounts where the model's prediction
 
 ---
 
-## 🕵️ Micro-Level Error Case Matrix
+## Micro-Level Error Case Matrix
 
 | Customer ID | Recency | Frequency | Spend (₹) | Support Tickets | Web Activity | Score Prob | Error Profile Type | Root Cause Analysis & Interpretation |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :--- |

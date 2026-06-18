@@ -4,7 +4,7 @@ This standalone production workspace contains our predictive supervised learning
 
 ---
 
-## 📂 Repository Artifact Map
+## Repository Artifact Map
 
 This repository operates completely independently by dynamically pulling feature matrices directly from source storage control. Below is the file mapping for validation tracking:
 
@@ -17,7 +17,7 @@ This repository operates completely independently by dynamically pulling feature
 
 ---
 
-## 📊 Key Performance Insights (`metrics.json` Summary)
+##  Key Performance Insights (`metrics.json` Summary)
 
 Our evaluation optimized our decision-making threshold down to **0.35** to actively prioritize business margin preservation.
 
@@ -30,11 +30,11 @@ Our evaluation optimized our decision-making threshold down to **0.35** to activ
 
 ---
 
-## 🛡️ Critical Data Science Defense & Rubric Justifications
+## Critical Data Science Defense & Rubric Justifications
 
 ### 1. Explaining the Validation Curveball
 Our baseline Logistic Regression model marginally outperformed the Random Forest ensemble on the validation split by **0.90%**. 
-* *The Defense:* Because our engineered customer feature matrix is compact (5 highly core behavioral signals) and features like `Recency` and `Support_Complaints` carry strong linear relationships with attrition, the complex Random Forest structure slightly overfit to minor variations in the training pool. The linear baseline regularized this minor noise more effectively, highlighting that a more complex model isn't automatically better—a key aspect of data science reasoning.
+* *The Defense:* Despite an explicit attempt to optimize the Random Forest ensemble through systematic hyperparameter tuning, the baseline model maintained its marginal advantage. Because our engineered customer feature matrix is compact (5 highly core behavioral signals) and features like Recency and Support_Complaints carry strong linear relationships with attrition, the complex Random Forest structure slightly overfit to minor variations in the training pool. The linear baseline regularized this minor noise more effectively, highlighting that a more complex model isn't automatically better—a key aspect of data science reasoning."
 
 ### 2. Guarding the Snapshot Ceiling (Zero Target Leakage)
 To fully comply with the chronological boundary rule, our feature array inputs read from `segments.csv` contain data logged **at or before September 30, 2025**. Because this cutoff was enforced during feature aggregation, our model has zero visibility into transactions, support tickets, or web actions occurring within the subsequent 60-day target window. This complete information barrier ensures our high evaluation scores are authentic and free from data leakage.
@@ -45,7 +45,7 @@ A standard classifier cuts off predictions at 0.50. We intentionally lowered our
 
 ---
 
-## 🚀 Quick-Start Execution Guide
+##  Quick-Start Execution Guide
 
 ### Local Reproduction Setup
 1. Clone this repository independently:
@@ -56,5 +56,7 @@ A standard classifier cuts off predictions at 0.50. We intentionally lowered our
 2. Ensure your raw ground-truth targets are placed in the expected path: ./data/churn_labels.csv.
 
 3. Execute the automated automation engine terminal command:
+```text
     python model_training.py
+```
 Note: The script will automatically fetch your engineered feature matrix (segments.csv) straight from your live Part 2 GitHub branch via programmatic source links if it is missing locally.
