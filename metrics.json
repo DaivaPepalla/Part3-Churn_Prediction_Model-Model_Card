@@ -1,0 +1,15 @@
+{
+    "validation_metrics": {
+        "baseline_logistic_regression_roc_auc": 0.8597,
+        "strong_random_forest_roc_auc": 0.8507,
+        "model_improvement_delta": -0.0089
+    },
+    "test_metrics_at_optimized_threshold": {
+        "selected_business_threshold": 0.35,
+        "accuracy": 0.7812,
+        "precision": 0.7273,
+        "recall_sensitivity": 0.8533,
+        "f1_score": 0.7853,
+        "test_roc_auc": 0.8393
+    }
+}
