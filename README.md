@@ -72,7 +72,7 @@ A standard classifier cuts off predictions at 0.50. We intentionally lowered our
 ### Local Reproduction Setup
 1. Clone this repository independently:
    ```bash
-   git clone [https://github.com/DaivaPepalla/Part3-Churn_Prediction_Model-Model_Card.git](https://github.com/DaivaPepalla/Part3-Churn_Prediction_Model-Model_Card.git)
+   git clone [https://github.com/DaivaPepalla/Part3-Churn_Prediction_Model-Model_Card.git]
    cd Part3-Churn_Prediction_Model-Model_Card
 
 2. Ensure your raw ground-truth targets are placed in the expected path: ./data/churn_labels.csv.
