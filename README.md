@@ -6,6 +6,28 @@ This standalone production workspace contains our predictive supervised learning
 
 ## Repository Artifact Map
 
+
+This directory contains the core machine learning pipeline for the D2C Customer Churn Prediction Engine. The pipeline ingests behavioral segmentation data, targets a 60-day attrition tracking window, trains benchmarking models, optimizes operational decision boundaries, and exports the final serialized model artifacts.
+
+---
+
+## 🛠️ Project Directory Layout
+
+Ensure your local layout matches this directory architecture before executing the training pipeline script:
+```text
+Part-3/
+├── data/
+│   └── churn_labels.csv          
+├── requirements.txt              
+├── README.md                     
+├── churn_model.ipynb
+├── error_analysis.md
+├── metrics.json
+├── model_card.md
+├── model.pkl
+├── segments.csv
+└── churn_model.py                      
+
 This repository operates completely independently by dynamically pulling feature matrices directly from source storage control. Below is the file mapping for validation tracking:
 
 * **`churn_model.ipynb`**: The master interactive Jupyter Notebook containing step-by-step documentation, ingestion splits, scaling, training executions, and validation logs.
@@ -57,6 +79,8 @@ A standard classifier cuts off predictions at 0.50. We intentionally lowered our
 
 3. Execute the automated automation engine terminal command:
 ```text
-    python model_training.py
+    pip install --upgrade pip
+    pip install -r requirements.txt
+    python churn_model.py
 ```
-Note: The script will automatically fetch your engineered feature matrix (segments.csv) straight from your live Part 2 GitHub branch via programmatic source links if it is missing locally.
+Note: The script will automatically fetch engineered feature matrix (segments.csv) straight from live Part 2 GitHub branch via programmatic source links if it is missing locally.
